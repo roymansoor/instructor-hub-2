@@ -14,6 +14,8 @@ export const AssessmentModal = (props) => {
     setChecked,
     selectedStudents,
     setSelectedStudents,
+    studentData,
+    setStudentData,
   } = props;
   const URL = "http://localhost:8000";
 
@@ -77,6 +79,16 @@ export const AssessmentModal = (props) => {
       .then((data) => {
         setAllAssessmentNames(data);
       });
+      
+      fetch(`${URL}/api/learn-grades`, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setCurrentLearnGrades(data);
+        });
     setShowAssessmentModal(true);
   };
 

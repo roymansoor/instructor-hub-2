@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Table from 'react-bootstrap/Table';
+import { useEffect, useState } from "react";
 
 export const ModalList = (props) => {
   //Passes down selectedStudents state for checkbox functionality
